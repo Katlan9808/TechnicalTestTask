@@ -6,6 +6,7 @@ export class TaskModel {
     developer: string;
     title: string;
     state: string;
+    dateLimit?: Date;
 
     constructor() {
         this.id = 0;
