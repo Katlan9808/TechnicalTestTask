@@ -28,6 +28,8 @@ Ejecutar los scripts con un usuario que tenga los privilegios 'sysdba':
 
 En estos scripts se encuentra la forma de crear el esquema y los objetos de base de datos que se necesitarán.
 
+Ejecutar los scripts en un ambiente de Oracle y tener en cuenta el ConnectionString de la aplicación, se debe realizar la encriptación de este dato.
+
 ### TaskClient
 En este proyecto se encuentra la estructura del cliente, que se desarrolló en AngularJS. Se integró el framework <strong>PrimeNG</strong><br>
 En la ruta de la carpeta <strong>\TaskClient</strong> ejecutar <code>npm install</code>, para obtener todos los paquetes requeridos para que el cliente funcione. En el cliente, se pueden realizar las operaciones CRUD y los demás puntos solicitados.
