@@ -5,11 +5,12 @@ CREATE SEQUENCE task_seq
     
     
 CREATE TABLE task (
-    id            NUMBER(8)       DEFAULT task.seq.NEXTVAL    PRIMARY KEY,
+    id            NUMBER(8)       DEFAULT task_seq.NEXTVAL    PRIMARY KEY,
     title         VARCHAR2(20)    NOT NULL,
     description   VARCHAR2(100)   NOT NULL,
     status        VARCHAR2(20)    NOT NULL,
     developer     VARCHAR2(20)    NOT NULL,
+    date_limit    DATE            DEFAULT SYSDATE + 5,
     date_created  DATE            DEFAULT SYSDATE    NOT NULL,
     date_updated  DATE
 );
