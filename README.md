@@ -37,6 +37,25 @@ Para el consumo de la API desde el cliente se, utiliza `HttpClient`, ya que con 
 ### TaskAPI
 En este proyecto se encuentra el backend de la aplicación, desarrollado implementando la arquitectura hexagonal. Esta arquitectura nos expone una aplicación totalmente independiente que puede ser usada de la misma forma por usuarios, programas, pruebas automatizadas o scripts, y puede ser desarrollada y probada de forma aislada de sus eventuales dispositivos y bases de datos en tiempo de ejecución.
 
+### Estructura del proyecto
+
+<ul>
+  <li>Task.WebAPI</li>
+  <li>Task.Utilities</li>
+  <li>Task.UnitTest</li>
+  <li>Task.Models</li>
+  <li>Task.Domain</li>
+  <li>Task.DataInfrastructure</li>
+  <li>Task.Application</li>
+</ul>
+
+Se comienza a crear el proyecto desde la capa de Domain, ya que así es como se orienta en la arquitectura hexagonal.
+
+Se incluye una capa transversal <strong>Task.Utilities</strong>,  la cual contiene datos y parámetros.
+
+<img title="Architecture=" src="Images/Estructure.png">
+
+
 Se integra el ORM (Object Relational Mapping) Entity Framework, el cual nos ayuda a mapear las entidades de la base de datos en nuestra API.
 
 El archivo encargado de realizar este proceso se encuentra en la capa <strong>Task.Domain/Bat</strong>
