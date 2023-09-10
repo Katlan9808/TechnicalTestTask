@@ -29,6 +29,7 @@
                     </th>
                     <th pSortableColumn="status" style="min-width:10rem">Estado <p-sortIcon field="status"></p-sortIcon>
                     </th>
+                    <th>Fecha limite</th>
                     <th></th>
                 </tr>
             </ng-template>
@@ -40,6 +41,7 @@
                     <td>
                         <p-tag [value]="task.state" [severity]="getStatus(task.state)"></p-tag>
                     </td>
+                    <td>{{ task.dateLimit | date}}</td>
                     <td>
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
                             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-confirm"
