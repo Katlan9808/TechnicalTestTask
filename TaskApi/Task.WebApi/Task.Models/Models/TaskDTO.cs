@@ -13,5 +13,6 @@ namespace Task.Models.Models
         public string Description { get; set; }
         public string Developer { get; set; }
         public string State { get; set; }
+        public DateTime DateLimit { get; set; }
     }
 }

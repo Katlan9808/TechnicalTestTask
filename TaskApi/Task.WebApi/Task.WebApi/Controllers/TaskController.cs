@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Task.Application.Services;
-using Task.DataInfrastructure.Context;
 using Task.DataInfrastructure.Repository;
 using Task.Domain;
 using Task.Domain.Entities;
@@ -16,14 +15,6 @@ namespace Task.WebApi.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-
-        //private readonly ILogger<TaskController> _logger;
-
-        //public TaskController(ILogger<TaskController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         TaskService createService()
         {
             TaskDbContext db = new TaskDbContext();
@@ -45,7 +36,8 @@ namespace Task.WebApi.Controllers
                 Title = x.TITLE,
                 Description = x.DESCRIPTION,
                 Developer = x.DEVELOPER,
-                State = x.STATUS
+                State = x.STATUS,
+                DateLimit = x.DATE_LIMIT
             }).ToList();
             return response;
         }
@@ -76,6 +68,7 @@ namespace Task.WebApi.Controllers
                     DESCRIPTION = objDto.Description,
                     STATUS = objDto.State,
                     DATE_CREATED = DateTime.Now,
+                    DATE_LIMIT = DateTime.Now.AddDays(5),
                 };
 
                 var service = createService();
@@ -123,7 +116,8 @@ namespace Task.WebApi.Controllers
                     TITLE = objDto.Title,
                     DESCRIPTION = objDto.Description,
                     STATUS = objDto.State,
-                    DATE_UPDATED = DateTime.Now
+                    DATE_UPDATED = DateTime.Now,
+                    DATE_LIMIT = DateTime.Now.AddDays(5),
                 };
 
 

@@ -15,6 +15,7 @@ public partial class TASK
 
     public string DEVELOPER { get; set; } = null!;
 
+    public DateTime DATE_LIMIT { get; set; }
     public DateTime DATE_CREATED { get; set; }
 
     public DateTime? DATE_UPDATED { get; set; }
