@@ -42,3 +42,18 @@
 # System files
 /TaskClient/.DS_Store
 /TaskClient/Thumbs.db
+/TaskApi/Task.WebApi/Task.Application/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.WebApi/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.WebApi/obj/Debug/net6.0
+/TaskApi/Task.WebApi/Task.WebApi/obj
+/TaskApi/Task.WebApi/Task.Utilities/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.Utilities/obj
+/TaskApi/Task.WebApi/Task.UnitTest/bin
+/TaskApi/Task.WebApi/Task.UnitTest/obj
+/TaskApi/Task.WebApi/Task.Models/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.Models/obj
+/TaskApi/Task.WebApi/Task.Domain/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.Domain/obj
+/TaskApi/Task.WebApi/Task.DataInfrastructure/bin/Debug/net6.0
+/TaskApi/Task.WebApi/Task.DataInfrastructure/obj
+/TaskApi/Task.WebApi/Task.Application/obj

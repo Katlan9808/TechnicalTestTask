@@ -1,0 +1,2 @@
+Scaffold-DbContext "User Id=taskproject;Password=juliangc;Data Source=localhost:1521/XEPDB1;"  -contextDir D:\ProyectosTrabajo\Propios\RepublicaDominicana\API\Task.WebApi\Task.DataInfrastructure\Context  -OutputDir D:\ProyectosTrabajo\Propios\RepublicaDominicana\API\Task.WebApi\Task.Domain\Entities Oracle.EntityFrameworkCore -Schemas taskproject -UseDatabaseNames -NoPluralize -Tables TASK -f -Context TaskDbContext
+pause
