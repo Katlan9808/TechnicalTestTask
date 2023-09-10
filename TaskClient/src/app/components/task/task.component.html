@@ -1,0 +1,36 @@
+<p-dialog [visible]="openDialog" [style]="{ height:'600px', width: '600px'  }" header="Tareas" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div style="display: grid; gap: 10px; padding: 20px;">
+            <div class="inputbox">
+                <input type="text" maxlength="20"  pInputText id="developer" [(ngModel)]="taskModel.developer" [disabled]="isEdit"
+                    required autofocus />
+                <span *ngIf="isAdd">Desarrollador</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" pInputText maxlength="20" id="taskName" [(ngModel)]="taskModel.title" required autofocus />
+                <span >Título</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" maxlength="100" pInputText id="taskDescription" [(ngModel)]="taskModel.description" required
+                    autofocus />
+                    <span >Descripción</span>
+            </div>
+            <div *ngIf="isEdit">
+                <p-dropdown [(ngModel)]="taskModel.state" [options]="statuses"
+                    placeholder="Seleccione el estado"
+                    [virtualScroll]="true" [virtualScrollItemSize]="20"
+                    [showClear]="true">
+                </p-dropdown>
+            </div>
+        </div>
+        <p-message *ngIf="!validForm" severity="error" text="Debe ingresar datos">
+        </p-message>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialog()"></button>
+        <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text"
+            (click)="saveTask($event)"></button>
+    </ng-template>
+</p-dialog>

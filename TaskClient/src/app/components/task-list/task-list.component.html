@@ -1,0 +1,63 @@
+<section class="" style="display: grid; margin: 0px; justify-content: center;">
+    <article style="padding: 10px;">
+        <p-toast></p-toast>
+        <p-toolbar styleClass="mb-4 gap-2">
+            <ng-template pTemplate="left">
+                <button pButton pRipple label="Nueva tarea" icon="pi pi-plus" class="p-button-success mr-2"
+                    (click)="addTask()"></button>
+            </ng-template>
+        </p-toolbar>
+
+        <p-table class="StandardTable" #dt [value]="taskList" [rows]="10" [paginator]="true" [tableStyle]="{ 'min-width': '75rem' }"
+            [rowHover]="true" dataKey="id" currentPageReportTemplate="Mostrando {first} de {last} elementos"
+            [showCurrentPageReport]="true" [globalFilterFields]="['dev', 'name', 'desc', 'status']">
+
+            <ng-template pTemplate="caption">
+                <div class="table-header" style="text-align: center;">
+                    <p style="margin: 0px; font-size: 20px;">Lista de tareas</p>
+                    <span class="p-input-icon-left"></span>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="dev" style="min-width:15rem">Desarrollador<p-sortIcon field="dev"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="name" style="min-width:15rem">Título tarea<p-sortIcon
+                            field="name"></p-sortIcon></th>
+                    <th pSortableColumn="desc" style="min-width:10rem">Descripción<p-sortIcon field="desc"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="status" style="min-width:10rem">Estado <p-sortIcon field="status"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-task>
+                <tr>
+                    <td>{{ task.developer }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>
+                        <p-tag [value]="task.state" [severity]="getStatus(task.state)"></p-tag>
+                    </td>
+                    <td>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-confirm"
+                                (click)="editTask(task)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                                (click)="deleteTaskConfirm(task)"></button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <p-toast></p-toast>
+        <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+    </article>
+</section>
+
+
+<div *ngIf='openDialog'>
+    <ta-app-task [openDialog]="openDialog" [taskModel]="taskModel" (closeDialog)="hideDialog($event)"
+        [isEdit]="isEditTask" [isAdd]="isAdd"></ta-app-task>
+</div>
